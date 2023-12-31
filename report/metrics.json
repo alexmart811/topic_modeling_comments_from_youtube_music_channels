@@ -1,0 +1,1 @@
+{"model": "catboost_tuned", "ROC_AUC": 0.9884066832299004, "Precision_micro": 0.7312246805858523, "Precision_macro": 0.690466697714242, "Recall_micro": 0.7312246805858523, "Recall_macro": 0.9279626157556521, "F1_micro": 0.7312246805858523, "F1_macro": 0.7802662659506605, "Logloss": 0.8370659938056286}

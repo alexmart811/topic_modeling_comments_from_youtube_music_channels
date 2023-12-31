@@ -1,0 +1,8 @@
+config/.ipynb_checkpoints/
+data/parse/.ipynb_checkpoints/
+data/source/.ipynb_checkpoints/
+notebooks/.ipynb_checkpoints/
+notebooks/catboost_info/
+data/train_test/train.csv
+models/bertopic.pickle
+models/embed_model.pickle

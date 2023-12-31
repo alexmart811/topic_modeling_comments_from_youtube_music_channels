@@ -1,0 +1,50 @@
+parse:
+  apiKey: 'AIzaSyDhaguCJt6P91Q8Vqbt1esEKR_7-j4ma7E'
+  channels_id: ../data/source/channels_id.txt
+  comments: ../data/parse/comments.txt
+  nrequests: 10000
+
+preprocessing:
+  dest: 'ru'
+  commets_translated: '../data/preprocessing/comments_translated.txt'
+  comments_preprocessed: '../data/preprocessing/comments_preprocessed.txt'
+  top_n: 20
+
+nlp_modeling:
+  random_state: 10
+  test_size: 0.2
+  min_df: 10
+  ngram_range: [2, 3]
+  n_estimators: 10
+  bagging_fraction: 0.63
+  umap_params: [
+    {'n_neighbors': 15, 'n_components': 2, 'min_dist': 0.1},
+    {'n_neighbors': 10, 'n_components': 2, 'min_dist': 0.01},
+    {'n_neighbors': 3, 'n_components': 2, 'min_dist': 0.001}
+  ]
+  hdbscan_params: [
+    {'min_cluster_size': 100, 'min_samples': 100},
+    {'min_cluster_size': 50, 'min_samples': 70},
+    {'min_cluster_size': 5, 'min_samples': 50}
+  ]
+  language: 'russian'
+  n_gram_range_bert: [1, 2]
+  train_df: '../data/train_test/train.csv'
+  test_comments: '../data/train_test/test_comments.txt'
+  bertopic_model: '../models/bertopic.pickle'
+  embed_model: '../models/embed_model.pickle'
+  topics_info: '../data/train_test/topics_info.csv'
+
+train_ml:
+  n_compoments_for_pca: 0.9
+  random_state: 10
+  test_size: 0.2
+  val_size: 0.16
+  n_folds: 3
+  pca_model: '../models/pca_model.pickle'
+  catboost_model: '../models/catboost_model.pickle'
+  best_params: '../report/best_params.json'
+  metrics: '../report/metrics.json'
+
+evaluate:
+  top_n_topics: 5
